@@ -1,12 +1,9 @@
-
 from Ex115met import sisNZ
 from Ex115met.arquivo import *
-
 
 nomes = []
 idade = []
 p = 0
-
 arq = 'dados.txt'
 
 if not filex(arq):
@@ -28,10 +25,16 @@ while p < 1:
 
                 sisNZ.cadastrar(arq, n, i)
             elif op == 2:
-                if len(n) == 0:
+                '''if len(n) == 0:
                     print('Não há nada à mostrar :(...')
                 else:
+                    lerArquivo(arq)'''
+                try:
                     lerArquivo(arq)
+                except Exception as erro:
+                    print(f"não foi passível ler o arquivo{erro}")
+
+
             elif op == 3:
                 p = 3
                 break

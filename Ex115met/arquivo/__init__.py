@@ -56,7 +56,7 @@ def criarArq(nome):
         a.close()'''
 
 
-def lerArquivo(nome_arquivo):
+'''def lerArquivo(nome_arquivo):
     try:
         with open(nome_arquivo, 'rt', encoding='utf-8') as arquivo:
             print(f'Cadastro Pessoas\n{"-"*30}')
@@ -66,6 +66,34 @@ def lerArquivo(nome_arquivo):
                 nome = dado[0]
                 idade = dado[1]
                 print(f'Nome: {nome} Idade: {idade}')
+    except FileNotFoundError:
+        print('Arquivo não encontrado!')
+    except Exception as e:
+        print(f'Erro ao ler o arquivo: {e}')
+'''
+
+
+def lerArquivo(nome_arquivo):
+    try:
+        with open(nome_arquivo, 'rt', encoding='utf-8') as arquivo:
+            print(f'Cadastro Pessoas\n{"-"*30}')
+            for linha in arquivo:
+                dado = linha.rstrip().split('→')
+
+                if len(dado) == 2:  # Verifica se a linha possui os dois dados esperados
+                    nome = dado[0]
+                    idade = dado[1]
+
+                    try:
+                        idade = int(idade)  # Tenta converter a idade em um número inteiro
+                    except ValueError:
+                        print(f'Idade inválida para o registro: {linha}')
+                        continue
+
+                    print(f'Nome: {nome} Idade: {idade}')
+                else:
+                    print(f'Linha inválida: {linha}')
+
     except FileNotFoundError:
         print('Arquivo não encontrado!')
     except Exception as e:
