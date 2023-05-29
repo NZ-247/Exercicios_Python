@@ -1,0 +1,46 @@
+# Crie um pequeno sistema modularizado que permita cadastrar
+# Pessoas pelo seu nome e idade em um arquivo de texto Simples
+
+# O Sistema só vai ter 2 opções:
+# cadastrar um nova pessoa
+# Listar toads as pessoas cadastradas.
+
+from Ex115met import sisNZ
+from Ex115met.arquivo import *
+
+nomes = []
+idade = []
+p = 0
+
+arq = 'dados.txt'
+
+if not filex(arq):
+    criarArq(arq)
+
+while p < 1:
+    try:
+        while True:
+            print(f'{"NZsql":=^36}')
+            op = int(input(f'''        \033[33m[1] - \033[34mNovo cadastro
+        \033[33m[2] - \033[34mListar cadastros
+        \033[33m[3] - \033[34mSair\033[32m
+            {"--" * 18}
+             Opção: \033[m '''))
+
+            if op == 1:
+                nomes.append(sisNZ.nameValid())
+                idade.append(sisNZ.idValid())
+
+            elif op == 2:
+                if len(nomes) == 0:
+                    print('Não há nada à mostrar :(...')
+                else:
+                    sisNZ.inf(nomes, idade)
+            elif op == 3:
+                p = 3
+                break
+            else:
+                print(f'\033[1;31mErro!!!\033[4;33m Opção inválida!\033[m')
+        print(f'\033[1;34mMuito Obrigado!\033[36m Volte Sempre...;)\033[m')
+    except ValueError:
+        print("Opção inválida! Digite apenas 1, 2 ou 3...")

@@ -1,0 +1,8 @@
+print('Operações Aritiméticas')
+#Práticas feitas no console;)
+n = input('Qual é o seu nome? ')
+print('prezer em te conhecer {:<20}!'.format(n))
+print('Bem Vindo {:>20}!'.format(n))
+print('Como vai {:^20}!'.format(n))
+print('É uma honra \033[4;32m{:=^20}'.format(n))
+print(':^')
