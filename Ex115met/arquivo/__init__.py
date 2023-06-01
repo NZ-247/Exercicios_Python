@@ -35,7 +35,6 @@ def criarArq(nome):
     finally:
         a.close()'''
 
-
 '''def lerArquivo(nome):
     try:
         a = open(nome, 'rt', encoding='utf-8')
@@ -55,7 +54,6 @@ def criarArq(nome):
     finally:
         a.close()'''
 
-
 '''def lerArquivo(nome_arquivo):
     try:
         with open(nome_arquivo, 'rt', encoding='utf-8') as arquivo:
@@ -72,11 +70,16 @@ def criarArq(nome):
         print(f'Erro ao ler o arquivo: {e}')
 '''
 
+import os
+
 
 def lerArquivo(nome_arquivo):
     try:
+        if os.stat(nome_arquivo).st_size == 0:
+            print('\033[31mAinda não há registros de pessoas cadastradas:(...\033[m\n')
+
         with open(nome_arquivo, 'rt', encoding='utf-8') as arquivo:
-            print(f'Cadastro Pessoas\n{"-"*30}')
+            print(f'Cadastro Pessoas\n{"-" * 30}')
             for linha in arquivo:
                 dado = linha.rstrip().split('→')
 

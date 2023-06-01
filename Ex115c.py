@@ -32,7 +32,7 @@ while p < 1:
                 try:
                     lerArquivo(arq)
                 except Exception as erro:
-                    print(f"não foi passível ler o arquivo{erro}")
+                    print(f"não foi possível ler o arquivo{erro}")
 
 
             elif op == 3:
