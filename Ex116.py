@@ -15,7 +15,6 @@ for i in range(200):
     t.left(180)
     for j in range(5):
         t.forward(75)
-        t.left(356)
+        t.left(355)
     if i == 199:
         p = str(input('?'))
-        

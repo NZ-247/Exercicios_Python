@@ -1,5 +1,4 @@
 
-
 def nameValid():
     '''
     Essa função serve para validar nomes,
